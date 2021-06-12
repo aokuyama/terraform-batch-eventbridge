@@ -3,6 +3,11 @@ resource "aws_cloudwatch_event_rule" "batch-rule" {
   name                = each.key
   event_pattern       = null
   schedule_expression = each.value.schedule
+  lifecycle {
+    ignore_changes = [
+      is_enabled
+    ]
+  }
 }
 
 resource "aws_cloudwatch_event_target" "batch-target" {
