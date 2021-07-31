@@ -9,6 +9,7 @@ variable "batches" {
     job_queue      = string
     job_definition = string
     command        = list(string)
+    description    = string
   }))
   default = {
     batch1 = {
@@ -16,12 +17,14 @@ variable "batches" {
       job_definition = "job_definition_name"
       schedule       = "cron(0 1 * * ? *)"
       command        = ["echo", "batch1"]
+      description    = "Jobs description."
     }
     batch2 = {
       job_queue      = "job_queue_name"
       job_definition = "job_definition_name"
       schedule       = "rate(5 minutes)"
       command        = ["echo", "batch2"]
+      description    = "Jobs description."
     }
   }
 }

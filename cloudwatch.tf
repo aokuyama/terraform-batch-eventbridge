@@ -8,6 +8,7 @@ resource "aws_cloudwatch_event_rule" "batch-rule" {
       is_enabled
     ]
   }
+  description = each.value.description
 }
 
 resource "aws_cloudwatch_event_target" "batch-target" {
